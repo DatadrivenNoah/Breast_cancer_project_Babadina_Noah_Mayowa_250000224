@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Breast Cancer Prediction | ANN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+
+            <!-- Header -->
+            <h1>Breast Cancer Prediction</h1>
+            <p class="subtitle">
+                ANN-based medical decision support system
+            </p>
+
+            <!-- Form -->
+            <form method="POST">
+
+                <!-- Autofill Button -->
+                <button type="button" class="autofill-btn" onclick="fillSample()">Autofill Sample Data</button>
+
+                <div class="grid">
+                    {% for feature in features %}
+                    <div class="input-group">
+                        <label>{{ feature.replace('_', ' ').title() }}</label>
+                        <input type="number" step="any" name="{{ feature }}" required placeholder="Enter value">
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit">Predict Tumor Type</button>
+            </form>
+
+            <!-- Prediction Result -->
+            {% if prediction %}
+            <div class="result {{ prediction_class }}">
+                <h2>{{ prediction }}</h2>
+
+                {% if probability %}
+                <p class="confidence">
+                    Confidence Probability: <strong>{{ probability }}</strong>
+                </p>
+                <!-- Confidence Bar -->
+                <div class="confidence-bar-container">
+                    <div class="confidence-bar" style="width: {{ probability * 100 }}%;"></div>
+                </div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <!-- Footer -->
+            <footer>
+                <p>
+                    Built by <strong>Babadina Noah Mayowa</strong> • ANN • Flask • TensorFlow
+                </p>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+        // Autofill Sample Data
+        function fillSample() {
+            {% for feature in features %}
+            document.getElementsByName("{{ feature }}")[0].value = (Math.random() * 10 + 5).toFixed(2);
+            {% endfor %}
+        }
+
+        // Animate Confidence Bar
+        window.addEventListener('load', () => {
+            const bar = document.querySelector('.confidence-bar');
+            if (bar) {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
