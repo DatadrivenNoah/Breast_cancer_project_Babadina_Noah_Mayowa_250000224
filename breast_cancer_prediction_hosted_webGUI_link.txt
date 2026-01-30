@@ -6,6 +6,6 @@ Machine Learning Algorithm Used : Ann (Artificial Neural Network)
 
 Model persistence method used : HDF5 format (Hierarchical Data Format)
 
-Live URL of the hosted application: https://breast-cancer-project-babadina-noah.onrender.com
+Live URL of the hosted application: 
 
 GitHub repository link : https://github.com/DatadrivenNoah/Breast_cancer_project_Babadina_Noah_Mayowa_250000224
