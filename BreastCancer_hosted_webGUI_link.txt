@@ -2,10 +2,10 @@ Name: Babadina Noah Mayowa
 
 Matric Number: 250000224
 
-Machine Learning Algorithm Used : Feed-Forward Neural Network (Keras)
+Machine Learning Algorithm Used : Ann (Artificial Neural Network)
 
 Model persistence method used : HDF5 format (Hierarchical Data Format)
 
-Live URL of the hosted application:
+Live URL of the hosted application: https://breast-cancer-project-babadina-noah.onrender.com
 
-GitHub repository link : 
+GitHub repository link : https://github.com/DatadrivenNoah/Breast_cancer_project_Babadina_Noah_Mayowa_250000224
